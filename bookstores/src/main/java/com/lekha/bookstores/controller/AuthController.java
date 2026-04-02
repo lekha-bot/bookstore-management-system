@@ -24,7 +24,7 @@ public class AuthController {
 
         ApiResponse<String> response = new ApiResponse<>(
                 "success",
-                "Login successful",
+                "Login successfully",
                 token
         );
 

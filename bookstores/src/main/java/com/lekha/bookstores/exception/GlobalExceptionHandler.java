@@ -64,7 +64,7 @@ public class GlobalExceptionHandler {
                         "message", "Access Denied",
                         "data", null
                 ),
-                HttpStatus.FORBIDDEN   // ✅ FIX: return 403
+                HttpStatus.FORBIDDEN
         );
     }
 }
