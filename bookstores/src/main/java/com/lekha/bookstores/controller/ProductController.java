@@ -44,7 +44,7 @@ public class ProductController {
     public ResponseEntity<ApiResponse<ProductDto>> updateProduct(@PathVariable Long id,
                                    @Valid @RequestBody ProductDto productDto){
         ProductDto product= service.updateProduct(id, productDto);
-        ApiResponse<ProductDto> response=new ApiResponse<>("success","product updated",product);
+        ApiResponse<ProductDto> response=new ApiResponse<>("success","product updated successfully",product);
         return ResponseEntity.ok(response);
     }
     @DeleteMapping("/{id}")
