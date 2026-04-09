@@ -44,14 +44,14 @@ public class ProductController {
     public ResponseEntity<ApiResponse<ProductDto>> updateProduct(@PathVariable Long id,
                                    @Valid @RequestBody ProductDto productDto){
         ProductDto product= service.updateProduct(id, productDto);
-        ApiResponse<ProductDto> response=new ApiResponse<>("success","product updated successfully",product);
+        ApiResponse<ProductDto> response=new ApiResponse<>("successfully","product updated successfully",product);
         return ResponseEntity.ok(response);
     }
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<String>> deleteProduct(@PathVariable Long id){
         service.deleteProduct(id);
-        ApiResponse<String> response=new ApiResponse<>("success","product deleted successfully",null);
+        ApiResponse<String> response=new ApiResponse<>("successfully","product deleted successfully",null);
         return ResponseEntity.ok(response);
     }
 }
