@@ -1,4 +1,10 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
 WORKDIR /app
-COPY target/bookstores-0.0.1-SNAPSHOT.jar app.jar
+COPY bookstores/pom.xml .
+COPY bookstores/src ./src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
